@@ -1,8 +1,26 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://gus.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/gus animation/4.png" type="Texture" id=2]
+[ext_resource path="res://resources/gus animation/0.png" type="Texture" id=3]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
-[node name="RigidBody2D" parent="." instance=ExtResource( 1 )]
-position = Vector2( 87.9667, 52.1284 )
+[node name="World" type="Node2D"]
+
+[node name="Aug" parent="." instance=ExtResource( 1 )]
+position = Vector2( 418.817, 157.365 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Aug"]
+position = Vector2( 151.35, -21.7566 )
+scale = Vector2( 0.1, 0.1 )
+frames = SubResource( 1 )
+frame = 1
+playing = true
+offset = Vector2( 120, 100 )
