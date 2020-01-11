@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-const move_force = 5000
+const move_force = 10000
 
 var move_up = false
 var move_down = false

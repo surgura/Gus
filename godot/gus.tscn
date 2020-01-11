@@ -20,6 +20,7 @@ radius = 16.9508
 height = 63.9952
 
 [node name="Gus" type="RigidBody2D"]
+gravity_scale = 0.0
 linear_damp = 50.0
 script = ExtResource( 1 )
 
