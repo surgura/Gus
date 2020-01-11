@@ -33,6 +33,7 @@ disabled = true
 position = Vector2( -0.197952, -2.61567 )
 scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 offset = Vector2( -100, 100 )
 flip_h = true
