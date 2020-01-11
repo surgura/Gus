@@ -6,7 +6,7 @@ const move_force = 10000
 var move_up = false
 var move_down = false
 
-func invert():
+func do_invert():
 	if invert:
 		get_node("AnimatedSprite").flip_h = false
 		var hitbox = get_node("HitArea/Shape")
@@ -16,7 +16,7 @@ func invert():
 		get_node("HitArea").invert = true
 
 func _ready():
-	invert()
+	do_invert()
 
 func input():
 	if Input.is_action_pressed("up"):
@@ -29,10 +29,10 @@ func input():
 	else:
 		move_down = false
 
-func _process(delta):
+func _process(_delta):
 	input()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var do_move = false
 	var move_direction = Vector2()
 	if move_up:
