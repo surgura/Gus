@@ -1,9 +1,22 @@
 extends RigidBody2D
 
+export (bool) var invert = false
 const move_force = 10000
 
 var move_up = false
 var move_down = false
+
+func invert():
+	if invert:
+		get_node("AnimatedSprite").flip_h = false
+		var hitbox = get_node("HitArea/Shape")
+		var trans = hitbox.get_transform()
+		trans.origin = Vector2(-trans.get_origin().x, trans.get_origin().y)
+		hitbox.set_transform(trans)
+		get_node("HitArea").invert = true
+
+func _ready():
+	invert()
 
 func input():
 	if Input.is_action_pressed("up"):
