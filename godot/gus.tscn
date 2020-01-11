@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://gus.gd" type="Script" id=1]
 [ext_resource path="res://resources/gus animation/4.png" type="Texture" id=2]
 [ext_resource path="res://resources/gus animation/0.png" type="Texture" id=3]
+[ext_resource path="res://hitarea.gd" type="Script" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -14,6 +15,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 16.9508
+height = 63.9952
+
 [node name="Gus" type="RigidBody2D"]
 linear_damp = 50.0
 script = ExtResource( 1 )
@@ -21,10 +26,19 @@ script = ExtResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2( 2, 2.5 )
 shape = SubResource( 1 )
+disabled = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -0.197952, -2.61567 )
 scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 offset = Vector2( 120, 100 )
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 30.4401, 0 )
+shape = SubResource( 3 )
